@@ -1,0 +1,43 @@
+kind: pipeline
+name: build-develop
+trigger:
+  ref:
+    - refs/tags/v*.*.*-rc*
+steps:
+  - name: install
+    image: node:14-alpine
+    commands:
+      - apk add git
+      - yarn install
+      - yarn build
+    # environment:
+    
+---
+kind: pipeline
+name: build-staging
+trigger:
+  ref:
+    - refs/tags/v*.*.*
+steps:
+  - name: install
+    image: node:14-alpine
+    commands:
+      - apk add git
+      - yarn install
+      - yarn run build-stag
+   
+---
+kind: pipeline
+name: build-production
+trigger:
+  ref:
+    - refs/tags/v*.*.*
+steps:
+  - name: install
+    image: node:14-alpine
+    commands:
+      - apk add git
+      - yarn install --production
+      - yarn run build-prod
+  
+
