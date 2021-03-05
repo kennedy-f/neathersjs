@@ -1,15 +1,14 @@
 import app from '../app';
 import ServiceCreate from '../config/services.config';
 
+import Server from './server/server.service'; 
 import User from './user/user.service';
 /**
  * Just returns the services
  */
 const services = [
-  ServiceCreate(User),
-  ServiceCreate({name : "filipe", model : () => console.log('gente boa')})
-
-  
+  User,
+  Server, 
 ];
 
 export default services;

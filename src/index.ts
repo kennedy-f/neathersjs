@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 server.on('listening', () => {
   console.log(
-    'Go Shift Profiles service started on http://%s:%d',
+    `${process.env.npm_package_name} service started on http://%s:%d`,
     config.host,
     config.port,
   );

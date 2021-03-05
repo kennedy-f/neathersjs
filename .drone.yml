@@ -10,8 +10,7 @@ steps:
       - apk add git
       - yarn install
       - yarn build
-    # environment:
-    
+
 ---
 kind: pipeline
 name: build-staging
