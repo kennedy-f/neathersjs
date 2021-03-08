@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --no-notify src/",
+    "dev": "ts-node-dev src/main/server.ts --no-notify src/",
     "lint": "eslint src/. test/. --config .eslintrc.json --ext .ts --fix"
   },
   "devDependencies": {
@@ -31,6 +31,7 @@
   "dependencies": {
     "@types/node": "^14.14.31",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "fastify": "^3.13.0"
+  },
 }
