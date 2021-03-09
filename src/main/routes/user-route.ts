@@ -1,9 +1,16 @@
-import RouteAdapter from '../adapters/fastify-route-adapter';
+import { adaptRoute, routeCreate } from '../adapters';
+
+
 import { FastifyReply, FastifyRequest } from 'fastify';
 const user = (req: FastifyRequest, res: FastifyReply) => {
   res.send('user 1 ');
 };
 
-const routes = [RouteAdapter('GET', '/user', user)];
+import { makeCheckUser } from '../../main/factories/controllers';
+
+const routes = [
+  routeCreate('GET', '/user', user),
+  routeCreate('GET', '/checkByemail', adaptRoute(makeCheckUser())),
+];
 
 export default routes;

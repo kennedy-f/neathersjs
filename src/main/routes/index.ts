@@ -1,10 +1,10 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import RouteAdapter from '../adapters/fastify-route-adapter';
+import { routeCreate } from '../adapters';
 
 const teste = (req: FastifyRequest, res: FastifyReply) => {
-  res.send('teste33');
+  res.send('connected');
 };
 
-const routes = [RouteAdapter('GET', '/teste55', teste)];
+const routes = [routeCreate('GET', '/teste55', teste)];
 
 export default routes;

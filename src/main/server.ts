@@ -1,15 +1,20 @@
 import App from './config/app';
+import env from './config/env';
+import { MongoHelper } from '../infra/db/mongodb';
 
-const PORT: number | string = process.env.PORT || 3000;
 const app = App;
 
 const server = async () => {
   try {
-    await app.listen(PORT, '0.0.0.0');
+    await app.listen(env.port, '0.0.0.0');
   } catch (e) {
     app.log.error(e);
     process.exit(1);
   }
 };
 
-server();
+MongoHelper.connect(env.mongoUrl)
+  .then(() => server())
+  .catch(console.error);
+
+// server();

@@ -1,5 +1,5 @@
 export interface AddProfile {
-  add: (user: AddProfile.Params) => Promise<AddProfile.Result>;
+  add: (profile: AddProfile.Params) => Promise<AddProfile.Result>;
 }
 
 export namespace AddProfile {

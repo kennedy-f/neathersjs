@@ -1,22 +1,21 @@
-import Route from '../../domain/types/Route';
+import { Controller } from '../../presentation/protocols';
 
-const newRoute = (
-  method: string,
-  url: string,
-  handler: Function | Promise<void>,
-  schema?: Function,
-): Route => {
-  const routeObject = {
-    method,
-    url,
-    handler,
-    schema,
+import { FastifyRequest, FastifyReply } from 'fastify';
+
+export const adaptRoute = (controller: Controller) => {
+  return async (req: FastifyRequest, res: FastifyReply) => {
+    const request = {
+      ...(((req.body as Object)) || {}),
+      ...(((req.params as Object)) || {}),
+      ...(((req.query as Object)) || {})
+    };
+    const httpResponse = await controller.handle(request);
+    if (httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299) {
+      res.code(httpResponse.statusCode).send(httpResponse.body);
+    } else {
+      res.code(httpResponse.statusCode).send({
+        error: httpResponse.body.message,
+      });
+    }
   };
-  return routeObject;
 };
-// !TO-DO
-// future create here a function to say what server framework
-// we are using express or fastify
-// and make the adapter more flexible
-
-export default newRoute;
