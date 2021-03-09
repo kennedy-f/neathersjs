@@ -1,4 +1,3 @@
-import { format } from 'prettier';
 import { MongoHelper } from './mongo-helper';
 import { CheckUserByEmailRepository } from '../../../data/protocols/db/users';
 
