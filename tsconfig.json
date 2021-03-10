@@ -11,7 +11,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
      "paths" : { 
-      "@/tests/*": ["../tests/*"],
+      "@/tests/*": ["./tests/*"],
       "@/*": ["./src/*"]
     }
   },

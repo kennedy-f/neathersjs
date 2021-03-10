@@ -15,5 +15,17 @@ export namespace AddProfile {
     role: string;
   };
 
-  export type Result = boolean;
+  export type Result = {
+    _id: string;
+    name: string;
+    email: string;
+    active: boolean;
+    companies: Company[];
+  };
+
+  export type Company = {
+    _id: string;
+    company: string;
+    role: string;
+  };
 }

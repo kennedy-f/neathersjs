@@ -1,8 +1,11 @@
-import { AddProfileController } from './add-profile-controller';
+import { AddProfileController } from '@/presentation/controllers';
+import { badRequest, ok, created, noContent } from '@/presentation/helpers';
+
+import { AddProfileSpy } from '../mocks/add-profile-spy';
 
 import faker from 'faker';
-import { AddProfileSpy } from '../mocks/add-profile-spy';
-import { badRequest } from '../helpers';
+import { MockResult } from '../../domain/mocks';
+import { Http2ServerRequest } from 'http2';
 
 const mockRequest = (): AddProfileController.Request => ({
   company_id: faker.name.findName(),
@@ -19,16 +22,19 @@ const makeSut = (): SutTypes => {
   const addProfileSpy = new AddProfileSpy();
 
   const sut = new AddProfileController(addProfileSpy);
-
+  const result = MockResult();
   return { sut, addProfileSpy };
 };
 
 describe('AddProfile Controller', () => {
   it('Should add a profile controller', async () => {
     const { sut, addProfileSpy } = makeSut();
+    const request = mockRequest();
+    const httpResponse = await sut.handle(request);
 
-    const httpResponse = await sut.handle(mockRequest());
-
-    expect(httpResponse).toEqual({ body: null, statusCode: 204 });
+    expect(httpResponse).toEqual({
+      body: addProfileSpy.result,
+      statusCode: 201,
+    });
   });
 });

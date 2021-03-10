@@ -1,10 +1,8 @@
-import { AddProfile } from '../../domain/useCases/add-profile';
-
-import faker from 'faker';
-
+import { AddProfile } from '@/domain/useCases/add-profile';
+import { MockResult } from '@/tests/domain/mocks';  
 export class AddProfileSpy implements AddProfile {
   params?: AddProfile.Params;
-  result = true;
+  result = MockResult();
 
   async add(params: AddProfile.Params): Promise<AddProfile.Result> {
     this.params = params;

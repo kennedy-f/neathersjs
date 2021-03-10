@@ -5,7 +5,7 @@ export class ProfileMongoRepository implements CreateProfileRepository {
   // change this any to a model
   async save(data: CreateProfileRepository.Params): Promise<any> {
     const userCollection = await MongoHelper.getCollection('users');
-    // console.log(data);
+
     const query = {
       _id: new ObjectId(data.user_id),
     };
@@ -29,12 +29,12 @@ export class ProfileMongoRepository implements CreateProfileRepository {
         companies: 1,
       },
     };
-  
+
     const profile = await userCollection.findOneAndUpdate(
       query,
       pushNewCompany,
-      options
-    ); 
+      options,
+    );
 
     return profile.value;
   }

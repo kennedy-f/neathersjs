@@ -1,5 +1,5 @@
 import { AddProfile } from '../../domain/useCases';
-import { noContent, ok, serverError } from '../helpers';
+import { noContent, created, serverError } from '../helpers';
 import { Controller, CustomHttpResponse, Validation } from '../protocols'; 
 
 export class AddProfileController implements Controller {
@@ -12,11 +12,10 @@ export class AddProfileController implements Controller {
     request: AddProfileController.Request,
   ): Promise<CustomHttpResponse> {
     try {
-      console.log('request maked ');
       const profile = await this.addProfile.add({
         ...request,
       });
-      return ok(profile);
+      return created(profile);
     } catch (err) {
       return serverError(err);
     }
