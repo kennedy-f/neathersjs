@@ -6,9 +6,7 @@ export class DbCreateProfile implements AddProfile {
     private readonly createProfileRepository: CreateProfileRepository,
   ) {}
 
-  async checkByEmail(
-    data: CreateProfileRepository.Params,
-  ): Promise<AddProfile.Result> {
+  async add(data: AddProfile.Params): Promise<any> {
     return this.createProfileRepository.save(data);
   }
 }
