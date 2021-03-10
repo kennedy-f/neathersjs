@@ -10,10 +10,9 @@ export namespace AddProfile {
    * Create Profile use case - params
    */
   export type Params = {
-    company: string;
-    level: string;
-    createdAt: Date;
-    updatedAt: Date;
+    user_id: string;
+    company_id: string;
+    role: string;
   };
 
   export type Result = boolean;

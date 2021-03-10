@@ -9,7 +9,6 @@ export namespace CreateProfileRepository {
     user_id: string;
     company_id: string;
     role: string;
-    company: string;
   };
 
   export type Result = boolean;

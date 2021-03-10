@@ -1,6 +1,7 @@
 import { adaptRoute, routeCreate } from '../adapters';
 
-import { makeCheckUser } from '@/main/factories/controllers';
+import { makeCheckUser } from '../factories/controllers';
+import { makeCreateProfile } from '../factories/controllers/create-profile-factory';
 
 // import { FastifyReply, FastifyRequest } from 'fastify';
 // const user = (req: FastifyRequest, res: FastifyReply) => {
@@ -11,6 +12,7 @@ import { makeCheckUser } from '@/main/factories/controllers';
 const routes = [
   // routeCreate('GET', '/user', user),
   routeCreate('GET', '/user', adaptRoute(makeCheckUser())),
+  routeCreate('POST', '/user/profile', adaptRoute(makeCreateProfile())),
 ];
 
 export default routes;

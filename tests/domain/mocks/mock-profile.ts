@@ -3,8 +3,7 @@ import { AddProfile } from '../useCases';
 import faker from 'faker';
 
 const MockAddProfile = (): AddProfile.Params => ({
-  company: faker.name.findName(),
-  level: faker.name.findName(),
-  createdAt: faker.date.recent(),
-  updatedAt: faker.date.recent(),
+  company_id: faker.name.findName(),
+  role: faker.name.findName(),
+  user_id: faker.name.findName(),
 });

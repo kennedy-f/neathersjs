@@ -5,8 +5,9 @@ import { AddProfileSpy } from '../mocks/add-profile-spy';
 import { badRequest } from '../helpers';
 
 const mockRequest = (): AddProfileController.Request => ({
-  company: faker.name.findName(),
-  level: faker.name.firstName(),
+  company_id: faker.name.findName(),
+  role: faker.name.firstName(),
+  user_id: faker.name.firstName(),
 });
 
 type SutTypes = {

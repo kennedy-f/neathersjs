@@ -8,7 +8,7 @@
   "license": "none",
   "private": true,
     "_moduleAliases": {
-    "@": "dist"
+    "@": "src/"
   },
   "scripts": {
     "build": "tsc",
