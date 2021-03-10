@@ -11,18 +11,18 @@ export class ProfileMongoRepository implements CreateProfileRepository {
     };
 
     const pushNewCompany = {
-      $push:
-      {
+      $push: {
         companies: {
+          _id: new ObjectId(),
           company: data.company_id,
           role: data.role,
-        }
+        },
       },
     };
 
     const options = {
       projection: {
-        _id: 0,
+        _id: 1,
         name: 1,
         email: 1,
         active: 1,
