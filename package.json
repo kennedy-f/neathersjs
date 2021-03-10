@@ -7,6 +7,9 @@
   "author": "Kennedy Ribeiro",
   "license": "none",
   "private": true,
+    "_moduleAliases": {
+    "@": "dist"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "ts-node-dev src/main/server.ts --no-notify src/",
@@ -40,6 +43,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "fastify": "^3.13.0",
+    "module-alias": "^2.2.2",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.19",
     "ts-jest": "^26.5.3"

@@ -1,14 +1,18 @@
 { 
   "compilerOptions": {
+    "outDir": "dist",
     "module": "commonjs",
     "target": "ES6",
-    "moduleResolution": "node",
+    // "moduleResolution": "node",
     "sourceMap": true,
     "removeComments": true,
-    "outDir": "dist",
-    "rootDirs": ["./src", "./test"],
+    "rootDirs": ["src", "tests"],
     "strict": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+     "paths" : { 
+      "@/tests/*": ["../tests/*"],
+      "@/*": ["./src/*"]
+    }
   },
 }

@@ -1,6 +1,8 @@
+import 'module-alias/register';
 import App from './config/app';
 import env from './config/env';
 import { MongoHelper } from '../infra/db/mongodb';
+
 
 const app = App;
 
