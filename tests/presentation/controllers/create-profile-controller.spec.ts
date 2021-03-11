@@ -27,7 +27,7 @@ const makeSut = (): SutTypes => {
 };
 
 describe('AddProfile Controller', () => {
-  it('Should add a profile controller', async () => {
+  it('Should return 201 and a result of adding a profile', async () => {
     const { sut, addProfileSpy } = makeSut();
     const request = mockRequest();
     const httpResponse = await sut.handle(request);
